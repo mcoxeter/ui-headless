@@ -7,11 +7,11 @@ import { DOMAttributes } from 'react';
 export interface ButtonHeadlessProps {
     onPress: () => void;
     working?: boolean;
-    children: (className: string[], spreadAttributes: ButtonAttributes) => JSX.Element
+    children: (className: string[], spreadAttributes: ButtonSpread) => JSX.Element
 }
 
 type SpeadAttributes = 'onFocus' | 'onBlur' | 'onMouseEnter' | 'onMouseLeave' | 'onClick' | 'onMouseDown' | 'onKeyPress';
-export interface ButtonAttributes extends Pick<DOMAttributes<HTMLButtonElement>, SpeadAttributes> {}
+export interface ButtonSpread extends Pick<DOMAttributes<HTMLButtonElement>, SpeadAttributes> {}
 
 export function ButtonHeadless (props: ButtonHeadlessProps): JSX.Element | null {
   const [machine, setMachine] = useMachine(buttonMachine);
@@ -32,12 +32,14 @@ export function ButtonHeadless (props: ButtonHeadlessProps): JSX.Element | null 
     props.onPress();
   };
 
-  const spreadAttributes: ButtonAttributes = {
+  const leave = () => setMachine({type: machine.matches('active') ? 'IDLE': 'END_HOVER'});
+
+  const spreadAttributes: ButtonSpread = {
         onBlur: () => { setMachine({type: 'BLUR'}); setFocus(false) },
         onFocus: () => { setMachine({type: 'FOCUS'}); setFocus(true) },
         onMouseEnter: () => setMachine({type: 'START_HOVER'}),
         onMouseDown: () => setMachine({type: 'ACTIVATE'}),
-        onMouseLeave: () => setMachine({type: 'IDLE'}),
+        onMouseLeave: () => leave(),
         onKeyPress: ({code}) => (code === 'Space'|| code === 'Enter') && click(),
         onClick: () => click()
   };
