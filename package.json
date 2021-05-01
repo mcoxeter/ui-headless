@@ -10,17 +10,21 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "@xstate/react": "^1.3.3",
+    "node-sass": "^5.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "typescript": "^4.1.2",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^1.0.1",
+    "xstate": "^4.19.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cucumber": "./node_modules/.bin/cucumber-js -p default"
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +43,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.17",
+    "chai": "^4.3.4",
+    "cucumber": "^7.0.0-rc.0",
+    "cucumber-pretty": "^6.0.0",
+    "cucumber-tsflow": "^4.0.0-rc.1"
   }
 }
