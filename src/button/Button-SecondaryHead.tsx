@@ -6,7 +6,7 @@ export interface ButtonSecondaryHeadProps {
     caption: string;
 }
 
-export function ButtonSecondaryHead (props: ButtonSecondaryHeadProps) {
+export function ButtonSecondaryHead (props: ButtonSecondaryHeadProps): JSX.Element {
     const [working, setWorking] = useState(false);
 
     const simulateWork = () => {

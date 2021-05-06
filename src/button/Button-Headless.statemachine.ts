@@ -19,7 +19,6 @@ export const buttonMachine = Machine({
   states: {
     idle: {
       on: {
-        FOCUS: 'focused',
         ACTIVATE: 'active',
         DISABLE: 'disabled',
       },
