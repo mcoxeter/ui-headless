@@ -1,0 +1,9 @@
+@import '/src/styles.scss';
+
+.component {
+  &.template {
+    color: $color-template-font;
+    background-color: $color-template-background;
+    height: 18px;
+  }
+}

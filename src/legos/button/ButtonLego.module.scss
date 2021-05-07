@@ -1,0 +1,48 @@
+@import '/src/styles.scss';
+
+.button-component {
+  outline: none;
+  border: none;
+  font-size: 16px;
+  box-sizing: border-box;
+  color: $color-font;
+  background-color: $color-primary;
+  padding: 0;
+
+  .button-ring {
+    margin: 2px;
+  }
+
+  /**
+   * Idle state
+   */
+  &.idle-state {
+    &:hover {
+      .button-ring {
+        outline: $color-font solid 1px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  /**
+  * Focused state
+  */
+  &.focused-state {
+    .button-ring {
+      outline: $color-font solid 1px;
+      cursor: pointer;
+    }
+    &:active {
+      background-color: $color-action-0;
+    }
+  }
+
+  /**
+  * Disabled state
+  */
+  &.disabled-state {
+    background-color: $color-disabled-background;
+    cursor: not-allowed;
+  }
+}

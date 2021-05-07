@@ -1,5 +1,5 @@
 import { Machine } from 'xstate';
-export const button2Machine = Machine({
+export const buttonLegoMachine = Machine({
   initial: 'idle',
   states: {
     template: {
@@ -30,7 +30,7 @@ export const button2Machine = Machine({
   },
 });
 
-export enum Button2Actions {
+export enum ButtonLegoActions {
   TEMPLATE = 'TEMPLATE',
   IDLE = 'IDLE',
   DISABLE = 'DISABLE',
