@@ -1,5 +1,42 @@
 .component {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+
+  &.left {
+    align-items: flex-start;
+  }
+
+  &.right {
+    align-items: flex-end;
+  }
+
+  &.center {
+    align-items: center;
+  }
+
+  &.stretch {
+    align-items: stretch;
+  }
+
+  &.00du {
+    gap: 0px;
+  }
+  &.01du {
+    gap: 1px;
+  }
+  &.02du {
+    gap: 2px;
+  }
+  &.04du {
+    gap: 4px;
+  }
+  &.08du {
+    gap: 8px;
+  }
+  &.16du {
+    gap: 16px;
+  }
+  &.32du {
+    gap: 32px;
+  }
 }

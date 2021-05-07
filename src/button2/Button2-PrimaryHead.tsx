@@ -16,7 +16,7 @@ export function Button2PrimaryHead (props: ButtonProps) {
             return (
               <button ref={myRef} type="button" className={className} {...spreadAttributes}>
                 <Ring {...props}>
-                  <Inline><Caption {...props}/><Icon {...props}/></Inline>                  
+                  <Inline spacing={'08du'} align={'center'}><Caption {...props}/><Icon {...props}/></Inline>                  
                 </Ring>
               </button>
               );
