@@ -1,6 +1,7 @@
 @import '/src/styles/styles.scss';
 
 .component {
+  margin: 0px;
   &.template {
     color: $color-template-font;
     background-color: $color-template-background;

@@ -21,6 +21,6 @@ export interface ButtonLegoLogicProps extends ButtonProps {
   ) => JSX.Element;
 }
 
-type SpeadAttributes = 'onFocus' | 'onBlur' | 'onClick' | 'disabled';
+type SpreadAttributes = 'onFocus' | 'onBlur' | 'onClick' | 'disabled';
 export interface ButtonLegoSpread
-  extends Pick<ButtonHTMLAttributes<HTMLButtonElement>, SpeadAttributes> {}
+  extends Pick<ButtonHTMLAttributes<HTMLButtonElement>, SpreadAttributes> {}
