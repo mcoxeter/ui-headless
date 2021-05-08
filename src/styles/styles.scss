@@ -2,18 +2,38 @@
 // System, Element, Category, Concept, Property, Variant, State
 @import './palette.scss';
 
-$color-primary: var(--green-1); // Category, Variant
-$color-secondary: var(--grey-2); // Category, Variant
-$color-tertiary: var(--white); // Category, Variant
-$color-danger: var(--red-0); // Category, Variant
+// Category, Variant
+$color-primary: var(--green);
 
-$color-font: var(--white); // Category, Property
-$color-font-tertiary: var(--green-1); // Category, Propery
+// Category, Variant
+$color-secondary: var(--grey-darken-88);
 
-$color-background-action: var(--green-2); // Category, Property, State
-$color-background-danger-action: var(--red-1); //Category,Property,Variant,State
+// Category, Variant
+$color-tertiary: var(--grey);
 
-$color-background-disabled: var(--grey-0);
-$color-template-background: var(--grey-1); // Category, Concept, Property
-$color-template-font: transparent; // Category, Concept, Property
-$color-ring-outline: var(--white); // Category, Concept, Property
+// Category, Variant
+$color-danger: var(--red);
+
+// Category, Property
+$color-font: var(--grey);
+
+// Category, Propery
+$color-font-tertiary: var(--green);
+
+// Category, Property, State
+$color-background-action: var(--green-darken-20);
+
+//Category,Property,Variant,State
+$color-background-danger-action: var(--red-darken-20);
+
+//Category,Property,State
+$color-background-disabled: var(--grey-darken-25);
+
+// Category, Concept, Property
+$color-template-background: var(--grey-darken-22);
+
+// Category, Concept, Property
+$color-template-font: transparent;
+
+// Category, Concept, Property
+$color-ring-outline: var(--grey);

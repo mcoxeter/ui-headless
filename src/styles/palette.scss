@@ -1,11 +1,13 @@
 :root {
-  --red-0: #da1e28;
-  --red-1: #be1922;
-  --green-0: #a7dfc1;
-  --green-1: #4fbf83;
-  --green-2: #368d5e;
-  --white: #ffffff;
-  --grey-0: #c0c0c0;
-  --grey-1: #e0e0e0;
-  --grey-2: #393939;
+  // Base Palette
+  --red: #da1e28;
+  --grey: #ffffff;
+  --green: #4fbf83;
+
+  // Variants on the base
+  --red-darken-20: #af1820; // darken(--red, 20%)
+  --green-darken-20: #399d67; // darken(--green, 20%)
+  --grey-darken-22: #e0e0e0; // darken(--grey, 22%)
+  --grey-darken-25: #c0c0c0; // darken(--grey, 25%)
+  --grey-darken-88: #393939; // darken(--grey, 88%)
 }
