@@ -1,0 +1,15 @@
+@import '/src/styles/styles.scss';
+
+.component {
+  height: 100px;
+  width: 100%;
+  border: $color-primary solid 1px;
+  svg {
+    height: 100%;
+    width: 100%;
+  }
+  line {
+    stroke: $color-border;
+    stroke-width: 1px;
+  }
+}

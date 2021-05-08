@@ -12,6 +12,11 @@ interface StackProps {
   flex?: string;
 }
 
+/**
+ * A stack is a container component.
+ * It controls the layout of its children.
+ * It lists the children as a stack of components.
+ */
 export function StackLego(
   props: React.PropsWithChildren<StackProps>
 ): JSX.Element {

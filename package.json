@@ -24,6 +24,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start-ds": "npx styleguidist server",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -52,6 +53,7 @@
     "chai": "^4.3.4",
     "cucumber": "^7.0.0-rc.0",
     "cucumber-pretty": "^6.0.0",
-    "cucumber-tsflow": "^4.0.0-rc.1"
+    "cucumber-tsflow": "^4.0.0-rc.1",
+    "react-styleguidist": "^11.1.6"
   }
 }
