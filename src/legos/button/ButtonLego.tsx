@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { ButtonLegoLogic } from './logic/ButtonLegoLogic';
 import styles from './ButtonLego.module.scss';
 import { ButtonProps } from './ButtonInterfaces';
+import { toCssModuleName } from '../../utils/css-module-helper';
 
 export function ButtonLego(props: React.PropsWithChildren<ButtonProps>) {
   const myRef = useRef<HTMLButtonElement>(null);
@@ -9,12 +10,15 @@ export function ButtonLego(props: React.PropsWithChildren<ButtonProps>) {
   return (
     <ButtonLegoLogic {...props} buttonRef={myRef}>
       {(classes, spreadAttributes) => {
-        const className = toClassName(classes.concat('button-component'));
+        const classNames = classes
+          .concat('component')
+          .concat(props.kind ? props.kind : 'primary');
+
         return (
           <button
             ref={myRef}
             type='button'
-            className={className}
+            className={toCssModuleName(classNames, styles)}
             {...spreadAttributes}
           >
             <Ring {...props}>{props.children}</Ring>
@@ -27,9 +31,4 @@ export function ButtonLego(props: React.PropsWithChildren<ButtonProps>) {
 
 function Ring(props: React.PropsWithChildren<ButtonProps>) {
   return <div className={styles['button-ring']}>{props.children}</div>;
-}
-
-function toClassName(classes: string[]): string {
-  const mapped = classes.map((x) => styles[x]);
-  return mapped.join(' ');
 }

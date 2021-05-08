@@ -1,0 +1,19 @@
+// Naming: https://medium.com/eightshapes-llc/naming-tokens-in-design-systems-9e86c7444676
+// System, Element, Category, Concept, Property, Variant, State
+@import './palette.scss';
+
+$color-primary: var(--green-1); // Category, Variant
+$color-secondary: var(--blue-0); // Category, Variant
+$color-tertiary: var(--white); // Category, Variant
+$color-danger: var(--red-0); // Category, Variant
+
+$color-font: var(--white); // Category, Property
+$color-font-tertiary: var(--green-1); // Category, Propery
+
+$color-background-action: var(--green-2); // Category, Property, State
+$color-background-danger-action: var(--red-1); //Category,Property,Variant,State
+
+$color-background-disabled: var(--grey-0);
+$color-template-background: var(--grey-1); // Category, Concept, Property
+$color-template-font: transparent; // Category, Concept, Property
+$color-ring-outline: var(--white); // Category, Concept, Property

@@ -1,13 +1,32 @@
-@import '/src/styles.scss';
+@import '/src/styles/styles.scss';
 
-.button-component {
+.component {
   outline: none;
   border: none;
   font-size: 16px;
   box-sizing: border-box;
-  color: $color-font;
-  background-color: $color-primary;
   padding: 0;
+
+  &.primary {
+    color: $color-font;
+    background-color: $color-primary;
+  }
+
+  &.secondary {
+    color: $color-font;
+    background-color: $color-secondary;
+  }
+
+  &.tertiary {
+    color: $color-font-tertiary;
+    background-color: $color-tertiary;
+    outline: $color-primary solid 1px;
+  }
+
+  &.danger {
+    color: $color-font;
+    background-color: $color-danger;
+  }
 
   .button-ring {
     margin: 2px;
@@ -18,8 +37,13 @@
    */
   &.idle-state {
     &:hover {
+      &.tertiary {
+        color: $color-font;
+        background-color: $color-primary;
+      }
+
       .button-ring {
-        outline: $color-font solid 1px;
+        outline: $color-ring-outline solid 1px;
         cursor: pointer;
       }
     }
@@ -29,12 +53,19 @@
   * Focused state
   */
   &.focused-state {
+    &.tertiary {
+      color: $color-font;
+      background-color: $color-primary;
+    }
     .button-ring {
-      outline: $color-font solid 1px;
+      outline: $color-ring-outline solid 1px;
       cursor: pointer;
     }
     &:active {
-      background-color: $color-action-0;
+      background-color: $color-background-action;
+      &.danger {
+        background-color: $color-background-danger-action;
+      }
     }
   }
 
@@ -42,7 +73,9 @@
   * Disabled state
   */
   &.disabled-state {
-    background-color: $color-disabled-background;
+    outline: none;
+    color: $color-font;
+    background-color: $color-background-disabled;
     cursor: not-allowed;
   }
 }

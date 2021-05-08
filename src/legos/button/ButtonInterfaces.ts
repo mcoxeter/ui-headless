@@ -2,10 +2,12 @@ import { ButtonHTMLAttributes } from 'react';
 import { IconName } from '../icon/IconLego';
 
 export interface ButtonProps {
-  onClick: () => void;
-  state: `TEMPLATE` | `IDLE` | `DISABLE`;
+  onClick?: () => void;
+  state: 'TEMPLATE' | 'IDLE' | 'DISABLE';
 
-  iconName?: IconName;
+  kind?: 'primary' | 'secondary' | 'tertiary' | 'danger';
+
+  icon?: IconName;
 
   caption?: string;
 
