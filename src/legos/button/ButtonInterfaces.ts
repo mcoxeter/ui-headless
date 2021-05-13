@@ -1,22 +1,16 @@
 import { ButtonHTMLAttributes } from 'react';
-import { IconName } from '../icon/IconLego';
 
-export interface ButtonProps {
-  onClick?: () => void;
-  state: 'TEMPLATE' | 'IDLE' | 'DISABLE';
-
+export interface ButtonLegoProps {
   kind?: 'primary' | 'secondary' | 'tertiary' | 'danger';
-
-  icon?: IconName;
-
-  caption?: string;
-
+  onClick?: () => void;
+  initialState: 'IDLE' | 'DISABLED' | 'INERT';
   applyFocus?: boolean;
 }
-export interface ButtonLegoLogicProps extends ButtonProps {
+export interface ButtonLegoLogicProps extends ButtonLegoProps {
   buttonRef: React.RefObject<HTMLButtonElement>;
   children: (
-    classNames: string[],
+    state: string,
+    previousState: string,
     spreadAttributes: ButtonLegoSpread
   ) => JSX.Element;
 }

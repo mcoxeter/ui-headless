@@ -12,7 +12,7 @@ export interface DialogLogicSpread {
 
 export interface DialogButtonLogic {
   click: () => void;
-  state: 'TEMPLATE' | 'IDLE' | 'DISABLE';
+  initialState: 'IDLE' | 'DISABLED';
 }
 
 export function DialogLogic(props: DialogLogicProps): JSX.Element {
@@ -22,11 +22,11 @@ export function DialogLogic(props: DialogLogicProps): JSX.Element {
   return props.children(classes, {
     cancel: {
       click: () => {},
-      state: 'IDLE',
+      initialState: 'IDLE',
     },
     submit: {
       click: () => {},
-      state: 'IDLE',
+      initialState: 'IDLE',
     },
   });
 }

@@ -1,24 +1,29 @@
-import React, { useRef } from 'react';
+import React, { useRef, FC, PropsWithChildren } from 'react';
 import { ButtonLegoLogic } from './logic/ButtonLegoLogic';
 import styles from './ButtonLego.module.scss';
-import { ButtonProps } from './ButtonInterfaces';
+import { ButtonLegoProps } from './ButtonInterfaces';
 import { toCssModuleName } from '../../utils/css-module-helper';
 
-export function ButtonLego(props: React.PropsWithChildren<ButtonProps>) {
-  const myRef = useRef<HTMLButtonElement>(null);
+/** A ButtonLego is a composable button. Unlike the [Button](#button) component, it is not opinionated about how it should look. The ButtonLego can children. */
+export let ButtonLego: FC<PropsWithChildren<ButtonLegoProps>> = (
+  props: PropsWithChildren<ButtonLegoProps>
+) => {
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   return (
-    <ButtonLegoLogic {...props} buttonRef={myRef}>
-      {(classes, spreadAttributes) => {
-        const classNames = classes
-          .concat('component')
-          .concat(props.kind ? props.kind : 'primary');
+    <ButtonLegoLogic {...props} buttonRef={buttonRef}>
+      {(state, previousState, spreadAttributes) => {
+        const classNames = ['component'].concat(
+          props.kind ? props.kind : 'primary'
+        );
 
         return (
           <button
-            ref={myRef}
+            ref={buttonRef}
             type='button'
             className={toCssModuleName(classNames, styles)}
+            data-state={state}
+            data-state-previous={previousState}
             {...spreadAttributes}
           >
             <Ring {...props}>{props.children}</Ring>
@@ -27,8 +32,14 @@ export function ButtonLego(props: React.PropsWithChildren<ButtonProps>) {
       }}
     </ButtonLegoLogic>
   );
-}
+};
 
-function Ring(props: React.PropsWithChildren<ButtonProps>) {
+ButtonLego.defaultProps = {
+  kind: 'primary',
+  onClick: () => {},
+  initialState: 'IDLE',
+};
+
+function Ring(props: React.PropsWithChildren<ButtonLegoProps>) {
   return <div className={styles['button-ring']}>{props.children}</div>;
 }

@@ -1,17 +1,20 @@
 import { useMachine } from '@xstate/react';
-import React from 'react';
-import {
-  buttonLegoMachine,
-  ButtonLegoActions,
-} from './ButtonLegoLogic.statemachine';
+import React, { useState } from 'react';
+import { buttonLegoMachine } from './ButtonLegoLogic.statemachine';
 import { ButtonLegoLogicProps, ButtonLegoSpread } from '../ButtonInterfaces';
 
 export function ButtonLegoLogic(props: ButtonLegoLogicProps): JSX.Element {
   const [machine, setMachine] = useMachine(buttonLegoMachine);
+  const [prevState, setPrevState] = useState('');
+
+  const setState = (newState: string): void => {
+    setPrevState(`${machine.value}`);
+    setMachine({ type: newState });
+  };
 
   React.useEffect(() => {
-    setMachine({ type: props.state });
-  }, [props.state, setMachine]);
+    setMachine({ type: props.initialState });
+  }, [props.initialState, setMachine]);
 
   React.useEffect(() => {
     if (props.applyFocus && props.buttonRef) {
@@ -20,14 +23,11 @@ export function ButtonLegoLogic(props: ButtonLegoLogicProps): JSX.Element {
   }, [props.applyFocus, props.buttonRef]);
 
   const spreadAttributes: ButtonLegoSpread = {
-    onBlur: () => setMachine({ type: ButtonLegoActions.BLUR }),
-    onFocus: () => setMachine({ type: ButtonLegoActions.FOCUS }),
+    onBlur: () => setState('BLUR'),
+    onFocus: () => setState('FOCUS'),
     onClick: props.onClick,
-    disabled: machine.matches('disabled') || machine.matches('template'),
+    disabled: machine.matches('disabled') || machine.matches('inert'),
   };
 
-  const classes = [`${machine.value}-state`].concat(
-    props.caption ? ['caption-state'] : []
-  );
-  return props.children(classes, spreadAttributes);
+  return props.children(`${machine.value}`, prevState, spreadAttributes);
 }

@@ -1,5 +1,7 @@
 import { DesignUnit, VerticalAlignment } from '../../types';
 import styles from './InlineLego.module.scss';
+import { PropsWithChildren, FC } from 'react';
+
 export interface InlineProps {
   align?: VerticalAlignment;
   spacing?: DesignUnit;
@@ -8,9 +10,9 @@ export interface InlineProps {
   minHeight?: string;
   maxHeight?: string;
 }
-export function InlineLego(
-  props: React.PropsWithChildren<InlineProps>
-): JSX.Element {
+export let InlineLego: FC<PropsWithChildren<InlineProps>> = (
+  props: PropsWithChildren<InlineProps>
+): JSX.Element => {
   const className = ['component']
     .concat(props.align ? props.align : 'stretch')
     .concat(props.spacing ? [`spacing-${props.spacing}`] : [])
@@ -29,4 +31,7 @@ export function InlineLego(
       {props.children}
     </div>
   );
-}
+};
+InlineLego.defaultProps = {
+  spacing: '04du',
+};

@@ -1,6 +1,4 @@
-### Stack presenting left aligned components
-
-`spacing='08du' align='left'`
+### Stack presenting **left** aligned components
 
 ```jsx
 import { MarkerLego } from '../marker/MarkerLego';
@@ -11,9 +9,7 @@ import { MarkerLego } from '../marker/MarkerLego';
 </StackLego>;
 ```
 
-### Stack presenting left aligned components
-
-`spacing='08du' align='right'`
+### Stack presenting **right** aligned components
 
 ```jsx
 import { MarkerLego } from '../marker/MarkerLego';
@@ -24,9 +20,7 @@ import { MarkerLego } from '../marker/MarkerLego';
 </StackLego>;
 ```
 
-### Stack presenting left aligned components
-
-`spacing='08du' align='center'`
+### Stack presenting **center** aligned components
 
 ```jsx
 import { MarkerLego } from '../marker/MarkerLego';

@@ -6,51 +6,51 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 
 library.add(fas);
 <StackLego spacing={'04du'} align={'left'}>
-  <Button caption='Primary button' state='TEMPLATE' />
-  <Button icon='plus-square' caption='Primary button' state='TEMPLATE' />
-  <Button icon='plus-square' state='TEMPLATE' />
-  <Button caption='Primary button' state='IDLE' applyFocus={true} />
-  <Button icon='plus-square' caption='Primary button' state='IDLE' />
-  <Button icon='plus-square' state='IDLE' />
-  <Button caption='Primary button' state='DISABLE' />
-  <Button icon='plus-square' caption='Primary button' state='DISABLE' />
-  <Button icon='plus-square' state='DISABLE' />
+  <Button caption='Primary button' template={true} />
+  <Button icon='plus-square' caption='Primary button' template={true} />
+  <Button icon='plus-square' template={true} />
+  <Button caption='Primary button' initialState='IDLE' />
+  <Button icon='plus-square' caption='Primary button' initialState='IDLE' />
+  <Button icon='plus-square' initialState='IDLE' />
+  <Button caption='Primary button' initialState='DISABLED' />
+  <Button icon='plus-square' caption='Primary button' initialState='DISABLED' />
+  <Button icon='plus-square' initialState='DISABLED' />
   <Button
     icon='plus-square'
     caption='Secondary button'
-    state='IDLE'
+    initialState='IDLE'
     kind='secondary'
   />
   <Button
     icon='plus-square'
     caption='Secondary button'
-    state='TEMPLATE'
+    template={true}
     kind='secondary'
   />
 
   <Button
     icon='plus-square'
     caption='Tertiary button'
-    state='IDLE'
+    initialState='IDLE'
     kind='tertiary'
   />
   <Button
     icon='plus-square'
     caption='Tertiary button'
-    state='TEMPLATE'
+    template={true}
     kind='tertiary'
   />
 
   <Button
     icon='plus-square'
     caption='Danger button'
-    state='IDLE'
+    initialState='IDLE'
     kind='danger'
   />
   <Button
     icon='plus-square'
     caption='Danger button'
-    state='TEMPLATE'
+    template={true}
     kind='danger'
   />
 </StackLego>;

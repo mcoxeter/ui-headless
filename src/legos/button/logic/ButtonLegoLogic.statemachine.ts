@@ -2,24 +2,24 @@ import { Machine } from 'xstate';
 export const buttonLegoMachine = Machine({
   initial: 'idle',
   states: {
-    template: {
+    inert: {
       on: {
         IDLE: 'idle',
-        DISABLE: 'disabled',
+        DISABLED: 'disabled',
       },
     },
     idle: {
       on: {
         FOCUS: 'focused',
-        DISABLE: 'disabled',
-        TEMPLATE: 'template',
+        DISABLED: 'disabled',
+        INERT: 'inert',
       },
     },
     focused: {
       on: {
         BLUR: 'idle',
-        DISABLE: 'disabled',
-        TEMPLATE: 'template',
+        DISABLED: 'disabled',
+        INERT: 'inert',
       },
     },
     disabled: {
@@ -29,11 +29,3 @@ export const buttonLegoMachine = Machine({
     },
   },
 });
-
-export enum ButtonLegoActions {
-  TEMPLATE = 'TEMPLATE',
-  IDLE = 'IDLE',
-  DISABLE = 'DISABLE',
-  FOCUS = 'FOCUS',
-  BLUR = 'BLUR',
-}

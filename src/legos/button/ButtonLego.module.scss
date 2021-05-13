@@ -6,76 +6,85 @@
   font-size: 16px;
   box-sizing: border-box;
   padding: 0;
-
-  &.primary {
-    color: $color-font;
-    background-color: $color-primary;
-  }
-
-  &.secondary {
-    color: $color-font;
-    background-color: $color-secondary;
-  }
-
-  &.tertiary {
-    color: $color-font-tertiary;
-    background-color: $color-tertiary;
-    outline: $color-primary solid 1px;
-  }
+  color: $color-font;
 
   &.danger {
-    color: $color-font;
     background-color: $color-danger;
   }
 
   .button-ring {
     margin: 2px;
   }
+}
 
-  /**
-   * Idle state
-   */
-  &.idle-state {
-    &:hover {
-      &.tertiary {
-        color: $color-font;
-        background-color: $color-primary;
-      }
+.component.primary {
+  background-color: $color-primary;
+}
 
-      .button-ring {
-        outline: $color-ring-outline solid 1px;
-        cursor: pointer;
-      }
-    }
-  }
+.component.secondary {
+  background-color: $color-secondary;
+}
 
-  /**
-  * Focused state
+.component.tertiary {
+  color: $color-font-tertiary;
+  background-color: $color-tertiary;
+  outline: $color-primary solid 1px;
+}
+
+.component.danger {
+  background-color: $color-danger;
+}
+
+.component.button-ring {
+  margin: 2px;
+}
+
+/**
+  * Idle state
   */
-  &.focused-state {
+.component[data-state='idle'] {
+  &:hover {
     &.tertiary {
       color: $color-font;
       background-color: $color-primary;
     }
-    .button-ring {
+
+    > .button-ring {
       outline: $color-ring-outline solid 1px;
       cursor: pointer;
     }
-    &:active {
-      background-color: $color-background-action;
-      &.danger {
-        background-color: $color-background-danger-action;
-      }
+  }
+}
+
+/**
+  * Focused state
+  */
+.component[data-state='focused'] {
+  &.tertiary {
+    color: $color-font;
+    background-color: $color-primary;
+  }
+  > .button-ring {
+    outline: $color-ring-outline solid 1px;
+    cursor: pointer;
+  }
+  &:active {
+    background-color: $color-background-action;
+    &.danger {
+      background-color: $color-background-danger-action;
+    }
+    &.secondary {
+      background-color: $color-background-secondary-action;
     }
   }
+}
 
-  /**
+/**
   * Disabled state
   */
-  &.disabled-state {
-    outline: none;
-    color: $color-font;
-    background-color: $color-background-disabled;
-    cursor: not-allowed;
-  }
+.component[data-state='disabled'] {
+  outline: none;
+  color: $color-font;
+  background-color: $color-background-disabled;
+  cursor: not-allowed;
 }
