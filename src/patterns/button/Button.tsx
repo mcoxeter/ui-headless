@@ -1,7 +1,6 @@
-import React, { FC, PropsWithChildren } from 'react';
-import { ButtonLegoProps } from '../../legos/button/ButtonInterfaces';
-import { ButtonLego } from '../../legos/button/ButtonLego';
+import { ButtonLego, ButtonLegoProps } from '../../legos/button/ButtonLego';
 import { CaptionLego } from '../../legos/caption/CaptionLego';
+import { FC, PropsWithChildren } from 'react';
 import { IconLego, IconName } from '../../legos/icon/IconLego';
 import { InlineLego } from '../../legos/inline/InlineLego';
 import { StackLego } from '../../legos/stack/StackLego';

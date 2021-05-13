@@ -6,7 +6,7 @@ export type DesignUnit =
   | '08du'
   | '16du'
   | '32du';
-export type HorizontalAlignment = 'left' | 'right' | 'center';
-export type VerticalAlignment = 'top' | 'bottom' | 'center';
+export type HorizontalAlignment = 'left' | 'right' | 'center' | 'stretch';
+export type VerticalAlignment = 'top' | 'bottom' | 'center' | 'stretch';
 
 export type IconName = 'plus-square';

@@ -1,10 +1,26 @@
 import React, { useRef, FC, PropsWithChildren } from 'react';
 import { ButtonLegoLogic } from './logic/ButtonLegoLogic';
 import styles from './ButtonLego.module.scss';
-import { ButtonLegoProps } from './ButtonInterfaces';
 import { toCssModuleName } from '../../utils/css-module-helper';
 
-/** A ButtonLego is a composable button. Unlike the [Button](#button) component, it is not opinionated about how it should look. The ButtonLego can children. */
+export type ButtonInitialState = 'IDLE' | 'DISABLED' | 'INERT';
+export type ButtonKind = 'primary' | 'secondary' | 'tertiary' | 'danger';
+export interface ButtonLegoProps {
+  /** Will apply focus the button when true. */
+  applyFocus?: boolean;
+
+  /** Sets the initial state of the button. */
+
+  initialState: ButtonInitialState;
+
+  /** The kind of button. */
+  kind?: ButtonKind;
+
+  /** The click handler for the button. */
+  onClick?: () => void;
+}
+
+/** A ButtonLego is a composable button. Unlike the [Button](#/Patterns?id=button) component, it is not opinionated about how it should look. The ButtonLego can children. */
 export let ButtonLego: FC<PropsWithChildren<ButtonLegoProps>> = (
   props: PropsWithChildren<ButtonLegoProps>
 ) => {
@@ -36,7 +52,6 @@ export let ButtonLego: FC<PropsWithChildren<ButtonLegoProps>> = (
 
 ButtonLego.defaultProps = {
   kind: 'primary',
-  onClick: () => {},
   initialState: 'IDLE',
 };
 

@@ -1,6 +1,5 @@
 const path = require('path');
 module.exports = {
-  components: 'src/**/[A-Z]*.{ts,tsx}',
   propsParser: (filePath, source, resolver, handlers) => {
     const { ext } = path.parse(filePath);
     return ext === '.tsx'
@@ -13,4 +12,18 @@ module.exports = {
       : require('react-docgen').parse(source, resolver, handlers);
   },
   skipComponentsWithoutExample: true,
+  pagePerSection: true,
+  sections: [
+    {
+      name: 'Documentation',
+    },
+    {
+      name: 'Legos',
+      components: 'src/legos/**/[A-Z]*.{ts,tsx}',
+    },
+    {
+      name: 'Patterns',
+      components: 'src/patterns/**/[A-Z]*.{ts,tsx}',
+    },
+  ],
 };
